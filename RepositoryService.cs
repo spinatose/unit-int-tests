@@ -19,5 +19,10 @@ namespace MyEFDataLibrary
         {
             return dataService.GetAllUserTypes().ToList();
         }
+
+        public async Task<List<MyEFDataLibrary.Models.UserType>> GetAllUserTypesAsync()
+        {
+            return (await dataService.GetAllUserTypesAsync()).ToList();
+        }
     }
 }

@@ -23,5 +23,20 @@ namespace TestProject.IntegrationTests
             // Assert
             Assert.IsNotNull(userTypes.FirstOrDefault(o => o.Name == "Admin"));
         }
+
+        [TestMethod]
+        public async Task GetUserTypesAsync_HasAdmin()
+        {
+            // Arrange
+            ClientPortalContext context = new ClientPortalContext();
+            IDataService dataService = new DataService(context);
+            IRepositoryService repoService = new RepositoryService(dataService);
+
+            // Act
+            List<UserType> userTypes = await repoService.GetAllUserTypesAsync();
+
+            // Assert
+            Assert.IsNotNull(userTypes.FirstOrDefault(o => o.Name == "Admin"));
+        }
     }
 }

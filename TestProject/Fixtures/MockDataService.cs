@@ -18,5 +18,10 @@ namespace TestProject.Fixtures
         {
             return userTypes;
         }
+
+        public Task<IEnumerable<UserType>> GetAllUserTypesAsync()
+        {
+            return Task.FromResult(userTypes.AsEnumerable());
+        }
     }
 }

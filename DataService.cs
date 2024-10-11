@@ -13,5 +13,10 @@ namespace MyEFDataLibrary
         }
 
         public IEnumerable<UserType> GetAllUserTypes() => context.Set<UserType>();
+
+        public async Task<IEnumerable<UserType>> GetAllUserTypesAsync()
+        {
+            return await context.Set<UserType>().ToListAsync();
+        }
     }
 }

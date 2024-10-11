@@ -23,5 +23,19 @@ namespace TestProject.UnitTests
             // Assert
             Assert.AreEqual(2, userTypes.Count);
         }
+
+        [TestMethod]
+        public async Task GetUserTypesAsync_ReturnsTwo()
+        {
+            // Arrange
+            IDataService dataService = new MockDataService();
+            IRepositoryService repoService = new RepositoryService(dataService);
+
+            // Act
+            List<UserType> userTypes = await repoService.GetAllUserTypesAsync();
+
+            // Assert
+            Assert.AreEqual(2, userTypes.Count);
+        }
     }
 }
